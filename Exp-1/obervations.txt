@@ -1,0 +1,7 @@
+# Observations:
+# 1. Bar Chart: The top-selling products are Hanes ComfortSoft T-Shirt.
+# 2. Pie Chart: The highest revenue-generating region is North Ameria .
+# 3. Histogram: The most common unit price range is 0-200.
+# 4. Timeline Chart: There was a sales peak around 11th of April.
+# 5. Scatter Plot: There's a positive correlation between Unit Price and Units Sold.
+# 6. Bubble Plot: The region with the highest sales and units sold is Asia.

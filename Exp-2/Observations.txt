@@ -1,0 +1,14 @@
+# Observations:
+# 1. Word Chart: The most mentioned country is Guinea.
+# 2. Box Plot: There's a wide distribution of confirmed cases in different WHO regions.
+# 3. Violin Plot: Deaths per 100 cases show high variability across regions.
+# 4. Linear Regression: There's a strong correlation between confirmed and recovered cases.
+# 5. Nonlinear Regression: The relationship between confirmed and deaths cases shows that there is high correlation between the two.
+# 6. 3D Chart: The 3D scatter plot indicates that America lies in the higher cases region among the countries.
+# 7. Jitter Plot: The deaths per 100 cases are spread out closely in some regions while scattered in others.
+# 8. Line Plot: Shows high number of cases in America and India compared to other countries
+# 9. Area Plot: The WHO regions with the highest cumulative cases are America and Europe.
+# 10. Waterfall Chart: Made through bar chart: Shows decreasing total confirmed cases country wise.
+# 11. Donut Chart: The WHO region with the most confirmed cases countries is Africa and Europe.
+# 12. Treemap: The countries with the highest confirmed cases are Brazil and US.
+# 13. Funnel Plot: A portion of confirmed cases have recovered.
