@@ -164,3 +164,72 @@ def generate_visualizations(df: pd.DataFrame, chart_type: str, chart_code: str, 
 
     except Exception as e:
         st.write("Error generating the chart:", e)
+
+def get_gemini_response_multiple(df: pd.DataFrame, api_key: str) -> str:
+    """
+    Get response from the Gemini model with the dataset information and request 5 visualizations in one go.
+    """
+    try:
+        # Setup your Gemini API with the provided API key
+        genai.configure(api_key=api_key)
+        
+        df_info = df.info()
+        df_sample = df.head()
+
+        # Create a prompt to generate 5 visualizations
+        prompt = f"""
+            Given the following dataset:
+
+            Data types of columns:
+            {df_info}
+
+            Sample data (first 5 rows):
+            {df_sample}
+
+            Please generate 5 important visualizations for the dataset, separated by '&'. 
+            Each output should be in the format:
+            Visualization Type$Python Code$X Axis Label$Y Axis Label
+            Example Responce : 'Scatter Plot$import seaborn as sns\nimport matplotlib.pyplot as plt\nplt.figure(figsize=(10, 6))\nsns.scatterplot(x='column1', y='column2', data=df)$Age$bmi'&...
+            Respond with these 5 outputs, each separated by an '&' symbol. 
+        """
+
+        # Send the request to Gemini
+        response = genai.GenerativeModel("gemini-1.5-flash").generate_content(prompt)
+
+        return response.text.strip()
+    
+    except Exception as e:
+        return f"Error while getting Gemini response: {str(e)}"
+
+
+def parse_gemini_response_multiple(response: str):
+    """
+    Parse the Gemini response into the chart type, chart code, and axis labels for multiple visualizations.
+    """
+    try:
+        # Split the response by '&' to separate multiple visualizations
+        response_parts = response.split('&')
+
+        # Check if the split was successful
+        visualizations = []
+
+        for part in response_parts:
+            # Split each visualization by '$'
+            print(part)
+            response_details = part.split('$')
+            if len(response_details) == 4:
+                chart_type = response_details[0].strip()
+                chart_code = response_details[1].strip()
+                x_label = response_details[2].strip()
+                y_label = response_details[3].strip()
+
+                visualizations.append((chart_type, chart_code, x_label, y_label))
+            # else:
+                # raise ValueError("The response format is incorrect. Expected 4 parts per visualization.")
+
+        return visualizations
+
+    except Exception as e:
+        print("Error parsing Gemini response:", e)
+        print("Gemini response:", response)
+        raise
