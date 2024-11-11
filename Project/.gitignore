@@ -1,0 +1,37 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+*.so
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Virtual Environments
+venv/
+env/
+*.env
+*.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Data
+*.csv
+*.sqlite
+
+# Logs
+*.log
+
+# Test and coverage
+*.cover
+.coverage
+nosetests.xml
+coverage.xml
+*.hypothesis/
+
+# OS-specific
+.DS_Store
+Thumbs.db
