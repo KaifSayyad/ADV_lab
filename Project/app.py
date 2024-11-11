@@ -3,7 +3,7 @@ import pandas as pd
 from utils import generate_visualizations, get_gemini_response_multiple, parse_gemini_response_multiple, get_gemini_response, parse_gemini_response
 
 # Set up Google Gemini API key
-GENAI_API_KEY = "AIzaSyA6fe32hAo-5ZHTJ5tQCbAmamFz4gFlLD4"  # Replace with your actual Gemini API key
+GENAI_API_KEY = "******************************"  # Replace with your actual Gemini API key
 
 # Streamlit UI components
 st.set_page_config(page_title="VizAI - Data Visualization and Insights", layout="wide")
